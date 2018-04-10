@@ -11,11 +11,11 @@
   padding: 20px;
   /* width: 50%; */
 }
-.home-buttons button {
+.home-buttons>button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 3px;
-  font-size: 10px;
+  font-size: 14px;
 }

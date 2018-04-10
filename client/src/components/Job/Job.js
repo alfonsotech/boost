@@ -7,10 +7,14 @@ class Job extends Component {
     this.state = {
       _id: '',
       title: '',
-      company: '',
       location: '',
       description: '',
-      url: ''
+      listingUrl: '',
+      remote: null,
+      notes: '',
+      company: '',
+      companyUrl: '',
+      companyLogo: ''
     }
   }
 
@@ -19,10 +23,14 @@ class Job extends Component {
     this.setState({
       _id: job._id,
       title: job.title,
-      company: job.company,
       location: job.location,
       description: job.description,
-      url: job.url
+      listingUrl: job.listingUrl,
+      remote: job.remote,
+      notes: job.notes,
+      company: job.company,
+      companyUrl: job.companyUrl,
+      companyLogo: job.companyLogo
     })
   }
 
@@ -30,9 +38,9 @@ class Job extends Component {
     return (
       <li className="Job">
         <div className="home-info">
-          <h3 className="title">{this.state.title}Title</h3>
-          <h5 className="company">{this.state.company}Company Name<span>{this.state.location}</span></h5>
-          <p className="description">Description{this.state.description}</p>
+          <h3 className="title">{this.state.title}</h3>
+          <h5 className="company">{this.state.company}<span> | {this.state.location}</span></h5>
+          <p className="description">{this.state.description}</p>
         </div>
         <div className="home-buttons">
           <button type="submit">History</button>
