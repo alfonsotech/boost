@@ -1,20 +1,21 @@
-.Dashboard {
+.Job {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: rgba(0,0,0,.1);
   border: 1px solid rgba(0,0,0,.1);
-  padding-top: 5px;
+  /* padding-top: 59px; */
 }
-.Dashboard>div {
+.Job>div {
   padding: 20px;
-  width: 50%;
+  /* width: 50%; */
 }
-.dashboard-buttons button {
+.home-buttons button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 3px;
+  font-size: 10px;
 }
