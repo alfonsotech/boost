@@ -2,13 +2,12 @@
     padding-top: 59px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 .search-box input {
-  text-align: center;
-  width: 30%;
+  /* text-align: center; */
+  width: 20%;
   padding: 10px;
-  margin: 40px 10px 20px 10px;
+  margin: 40px;
   /* text-align: center; */
 }

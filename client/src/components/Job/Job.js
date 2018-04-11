@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-// import RaisedButton from 'material-ui/RaisedButton'
+// import Toggle from 'material-ui/Toggle'
 import axios from 'axios'
 import './Job.css'
 
@@ -19,7 +20,8 @@ class Job extends Component {
       newNotes: '',
       company: '',
       companyUrl: '',
-      companyLogo: ''
+      companyLogo: '',
+      expanded: false
     }
   }
 
@@ -39,10 +41,24 @@ class Job extends Component {
     })
   }
 
+  handleExpandChange = (expanded) => {
+    this.setState({expanded: expanded});
+  }
 
+  handleToggle = (event, toggle) => {
+    this.setState({expanded: toggle})
+  }
+
+  handleExpand = () => {
+    this.setState({expanded: true})
+  }
+
+  handleReduce = () => {
+    this.setState({expanded: false})
+  }
 
   handleDelete = () => {
-    console.log('Delete button clicked');
+    console.log('Delete button clicked')
     axios.delete('/api/jobs/' + this.state._id)
     this.props.history.push('/jobs')
   }
@@ -50,7 +66,7 @@ class Job extends Component {
   // updateNotes = (event) => {
   //   event.preventDefault()
   //   const notes = this.state
-  //   console.log('notes', notes);
+  //   console.log('notes', notes)
   //   axios.put('/api/jobs/' + this.state._id, {notes: this.state.newNotes})
   // }
   //
@@ -59,50 +75,35 @@ class Job extends Component {
   //   this.setState({
   //     [name]: value
   //   })
-  //   console.log('this.state.notes', this.state.notes);
+  //   console.log('this.state.notes', this.state.notes)
   // }
 
   render() {
     return (
       <MuiThemeProvider>
       <li className="Job">
+        <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <CardHeader
+          title={this.state.company}
+          subtitle={this.state.title}
+          avatar={this.state.companyLogo}
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
 
+        {/* <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} /> */}
 
-
-        <div className="home-info">
-
-            <h3 className="title"><a href={this.state.listingUrl} target="_blank">{this.state.title}</a></h3>
-
-
-            <h4 className="company"><a href={this.state.companyUrl} target="_blank">{this.state.company}</a><span> | {this.state.location}</span></h4>
-
-          <div>
-            <h4>Description</h4>
-            <p className="description">  {this.state.description}</p>
+        <CardText expandable={true}>
+          <div className="description">
+            {this.state.description}
           </div>
-
+        </CardText>
+        <CardText expandable={true}>
           <hr />
-          <div className="notes">
-            <h4>Notes</h4>
-            <p>{this.state.notes}</p>
-{/*
-              <form onSubmit={this.updateNotes}>
-                <textarea
-                  className="form-control"
-                  type="text"
-                  value={this.state.notes}
-                  name="notes"
-                  placeholder='notes'
-                  onChange={this.handleInputChange}
-                />
-                <FlatButton
-                  type="submit" className="add-notes-button" label="Update Notes" />
-              </form> */}
-
-          </div>
-
-        </div>
-        <div className="home-buttons">
+          <h4>Notes</h4>
+          {this.state.notes}
+        </CardText>
+        <CardActions>
           <FlatButton
             type="submit" className="edit-notes-button" label="Edit" />
           <FlatButton
@@ -110,7 +111,16 @@ class Job extends Component {
             onClick={this.handleDelete} />
           <FlatButton
             type="submit" className="network-button" label="Network" />
-        </div>
+          {/* <FlatButton label="Expand" onClick={this.handleExpand} /> */}
+          {/* <FlatButton label="Reduce" onClick={this.handleReduce} /> */}
+        </CardActions>
+      </Card>
+
+
+
+
+
+
       </li>
       </MuiThemeProvider>
     )
