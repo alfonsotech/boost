@@ -18,7 +18,6 @@ class Home extends Component {
   componentWillMount = () => {
     axios.get('/api/jobs')
     .then( (response) => {
-      console.log('response', response);
       this.setState({
         jobs:response.data
       })

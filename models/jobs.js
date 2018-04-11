@@ -7,7 +7,7 @@ const jobSchema = new Schema({
   description: { type: String, required: false },
   listingUrl: { type: String, required: false },
   remote: { type: Boolean, required: false },
-  notes: { type: String, required: false },
+  notes: { type: Array, required: false },
   company: { type: String, required: false },
   companyUrl: { type: String, required: false },
   companyLogo: { type: String, required: false },
