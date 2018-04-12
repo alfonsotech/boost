@@ -19,8 +19,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-client/src/pages/Submit.js
-client/src/pages/Submit.css
-client/src/pages/Edit.js
-client/src/pages/Edit.css

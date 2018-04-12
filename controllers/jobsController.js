@@ -19,12 +19,15 @@ module.exports = {
   create: function(req, res) {
     const job = {
       title: req.body.title,
-      company: req.body.company,
       location: req.body.location,
       description: req.body.description,
-      url: req.body.url
+      listingUrl: req.body.listingUrl,
+      // jobState: req.body.jobState,
+      notes: req.body.notes,
+      company: req.body.company,
+      companyUrl: req.body.companyUrl,
+      companyLogo: req.body.companyLogo
     }
-    console.log('job>>>>>>>>', job);
     db.Jobs
       .create(job)
       .then(dbJobs => res.json(dbJobs))

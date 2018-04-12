@@ -20,8 +20,11 @@ const Navigation = () => (
         <NavItem eventKey={2} href="/jobs">
           My Jobs
         </NavItem>
-        <NavItem eventKey={2} href="/network">
+        <NavItem eventKey={3} href="/network">
           My Network
+        </NavItem>
+        <NavItem eventKey={4} href="/submit">
+          Submit
         </NavItem>
       </Nav>
     </Navbar.Collapse>

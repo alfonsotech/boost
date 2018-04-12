@@ -1,0 +1,13 @@
+.job-state {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+.job-state>label {
+  margin: 10px;
+}
+.job-state>label>input {
+  margin: 5px;
+}

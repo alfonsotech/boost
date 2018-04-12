@@ -3,10 +3,14 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema({
   title: { type: String, required: true },
-  company: { type: String, required: false },
   location: { type: String, required: false },
   description: { type: String, required: false },
-  url: { type: String, required: false },
+  listingUrl: { type: String, required: false },
+  jobState: { type: String, default: 'to-apply' },
+  notes: { type: Array, required: false },
+  company: { type: String, required: false },
+  companyUrl: { type: String, required: false },
+  companyLogo: { type: String, required: false },
   date: { type: Date, default: Date.now }
 });
 
