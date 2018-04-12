@@ -5,9 +5,9 @@
   align-items: center;
   list-style-type: none;
 }
-.job-state>li {
+.job-state>label {
   margin: 10px;
 }
-.job-state>li>label>input {
+.job-state>label>input {
   margin: 5px;
 }

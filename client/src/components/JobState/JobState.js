@@ -21,67 +21,52 @@ class JobState extends Component {
 
   render() {
     return (
-      <form>
-        <ul className="job-state">
-          <li>
-            <label>
-              <input
-                type="radio"
-                value="to-apply"
-                checked={this.state.jobState === "to-apply"}
-                onChange={this.handleStateChange}
-              />
-              To Apply
-            </label>
-          </li>
-
-          <li>
-            <label>
-              <input
-                type="radio"
-                value="applied"
-                checked={this.state.jobState === "applied"}
-                onChange={this.handleStateChange}
-              />
-              Applied
-            </label>
-          </li>
-
-          <li>
-            <label>
-              <input
-                type="radio"
-                value="follow-up"
-                checked={this.state.jobState === "follow-up"}
-                onChange={this.handleStateChange}
-              />
-              Follow Up
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                value="turned-down"
-                checked={this.state.jobState === "turned-down"}
-                onChange={this.handleStateChange}
-              />
-              Turned Down
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                value="interview-granted"
-                checked={this.state.jobState === "interview-granted"}
-                onChange={this.handleStateChange}
-              />
-              Interview
-            </label>
-          </li>
-        </ul>
-
+      <form className="job-state">
+        <label>
+          <input
+            type="radio"
+            value="to-apply"
+            checked={this.state.jobState === "to-apply"}
+            onChange={this.handleStateChange}
+          />
+          To Apply
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="applied"
+            checked={this.state.jobState === "applied"}
+            onChange={this.handleStateChange}
+          />
+          Applied
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="follow-up"
+            checked={this.state.jobState === "follow-up"}
+            onChange={this.handleStateChange}
+          />
+          Follow Up
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="turned-down"
+            checked={this.state.jobState === "turned-down"}
+            onChange={this.handleStateChange}
+          />
+          Turned Down
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="interview-granted"
+            checked={this.state.jobState === "interview-granted"}
+            onChange={this.handleStateChange}
+          />
+          Interview
+        </label>
       </form>
     )
   }
