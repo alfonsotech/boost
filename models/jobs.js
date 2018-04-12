@@ -6,7 +6,7 @@ const jobSchema = new Schema({
   location: { type: String, required: false },
   description: { type: String, required: false },
   listingUrl: { type: String, required: false },
-  remote: { type: Boolean, required: false },
+  jobState: { type: String, default: 'to-apply' },
   notes: { type: Array, required: false },
   company: { type: String, required: false },
   companyUrl: { type: String, required: false },

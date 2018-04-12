@@ -26,6 +26,13 @@
 } */
 
 .description {
-  height: 75px;
+  height: 100px;
   overflow: scroll;
+}
+.job-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.job-action-button>div>span {
+  padding: 0 !important;
 }

@@ -13,7 +13,7 @@ class Submit extends Component {
       location: '',
       description: '',
       listingUrl: '',
-      remote: null,
+      jobState: '',
       notes: '',
       company: '',
       companyUrl: '',
@@ -31,9 +31,9 @@ class Submit extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-    const {title, location, description, listingUrl, remote, notes, company, companyUrl, companyLogo} = this.state
+    const {title, location, description, listingUrl, jobState, notes, company, companyUrl, companyLogo} = this.state
 
-    axios.post('/api/jobs', {title, location, description, listingUrl, remote, notes, company, companyUrl, companyLogo})
+    axios.post('/api/jobs', {title, location, description, listingUrl, jobState, notes, company, companyUrl, companyLogo})
     .then( job => {
             console.log('form submitted, the following job was added:', job)
             this.setState({
@@ -41,7 +41,7 @@ class Submit extends Component {
               location: job.location,
               description: job.description,
               listingUrl: job.listingUrl,
-              remote: job.remote,
+              jobState: 'to-apply',
               notes: job.notes,
               company: job.company,
               companyUrl: job.companyUrl,

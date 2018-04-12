@@ -10,7 +10,7 @@ class Network extends Component {
     return (
 
       <div className="Network">
-      <h1>Hello World</h1>
+      <h1>Hello From Network Page</h1>
       </div>
 
     );

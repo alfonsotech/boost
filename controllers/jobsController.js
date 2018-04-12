@@ -22,13 +22,12 @@ module.exports = {
       location: req.body.location,
       description: req.body.description,
       listingUrl: req.body.listingUrl,
-      remote: req.body.remote,
+      // jobState: req.body.jobState,
       notes: req.body.notes,
       company: req.body.company,
       companyUrl: req.body.companyUrl,
       companyLogo: req.body.companyLogo
     }
-    console.log('job>>>>>>>>', job);
     db.Jobs
       .create(job)
       .then(dbJobs => res.json(dbJobs))
