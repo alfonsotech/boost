@@ -80,7 +80,6 @@ class Job extends Component {
             console.log('form submitted, the following resource was edited:', data)
           })
           this.props.history.push('/jobs')
-            // this.props.history.push('/topics')
   }
 
   handleDelete = () => {
@@ -91,187 +90,175 @@ class Job extends Component {
     this.props.history.push('/jobs')
   }
 
-  // updateNotes = (event) => {
-  //   event.preventDefault()
-  //   const notes = this.state
-  //   console.log('notes', notes)
-  //   axios.put('/api/jobs/' + this.state._id, {notes: this.state.newNotes})
-  // }
-  //
-  // handleInputChange = event => {
-  //   const { name, value } = event.target
-  //   this.setState({
-  //     [name]: value
-  //   })
-  //   console.log('this.state.notes', this.state.notes)
-  // }
-
   render() {
-    return (
-      <MuiThemeProvider>
-      <li className="Job">
-        <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-        <CardHeader
-          title={this.state.company}
-          subtitle={this.state.title}
-          avatar={this.state.companyLogo}
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
+    const jobState = this.state.jobState
 
-        {/* <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} /> */}
+    if(jobState !== "rejection") {
+      return (
+        <MuiThemeProvider>
+        <li className="Job">
+          <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+          <CardHeader
+            title={this.state.company}
+            subtitle={this.state.title}
+            avatar={this.state.companyLogo}
+            actAsExpander={true}
+            showExpandableButton={true}
+          />
 
-        <CardText expandable={true}>
-          <div className="job-state">
-            <JobState id={this.state._id} jobState={this.state.jobState} />
-          </div>
-        </CardText>
-        <CardText expandable={true}>
-          <div className="description">
-            <h4>Description</h4>
-            {this.state.description}
-          </div>
-        </CardText>
-        <CardText expandable={true}>
-          <h4>Notes</h4>
-          {this.state.notes}
-        </CardText>
-        <CardActions className="job-actions">
-          <FlatButton
-            type="submit" className="job-action-button" label="Edit" onClick={this.handleOpen} />
-          <FlatButton
-            type="submit" className="job-action-button" label="Delete"
-            onClick={this.handleDelete} />
-          <FlatButton
-            type="submit" className="job-action-button" label="Network" />
-          {/* <FlatButton label="Expand" onClick={this.handleExpand} /> */}
-          {/* <FlatButton label="Reduce" onClick={this.handleReduce} /> */}
-        </CardActions>
-      </Card>
+          <CardText expandable={true}>
+            <div className="job-state">
+              <JobState id={this.state._id} jobState={this.state.jobState} />
+            </div>
+          </CardText>
+          <CardText expandable={true}>
+            <div className="description">
+              <h4>Description</h4>
+              {this.state.description}
+            </div>
+          </CardText>
+          <CardText expandable={true}>
+            <h4>Notes</h4>
+            {this.state.notes}
+          </CardText>
+          <CardActions className="job-actions">
+            <FlatButton
+              type="submit" className="job-action-button" label="Edit" onClick={this.handleOpen} />
+            <FlatButton
+              type="submit" className="job-action-button" label="Delete"
+              onClick={this.handleDelete} />
+            <FlatButton
+              type="submit" className="job-action-button" label="Network" />
+          </CardActions>
+        </Card>
 
-      <Dialog
-        title="Edit Job"
-        modal={false}
-        open={this.state.open}
-        onRequestClose={this.handleClose}
-        autoScrollBodyContent={true}
-        >
-          <div className="edit-resource">
-            <form onSubmit={this.handleFormSubmit}>
-              <div className="form-group submit-inputs">
-                <div>
-                  <h4>
-                    <strong>Title</strong>
-                  </h4>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.title}
-                    name="title"
-                    placeholder='Job title'
-                    onChange={this.handleInputChange}
-                    required
-                  />
+        <Dialog
+          title="Edit Job"
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
+          >
+            <div className="edit-resource">
+              <form onSubmit={this.handleFormSubmit}>
+                <div className="form-group submit-inputs">
+                  <div>
+                    <h4>
+                      <strong>Title</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.title}
+                      name="title"
+                      placeholder='Job title'
+                      onChange={this.handleInputChange}
+                      required
+                    />
 
-                  <h4>
-                    <strong>Listing Url</strong>
-                  </h4>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.listingUrl}
-                    name="listingUrl"
-                    placeholder='Listing Url'
-                    onChange={this.handleInputChange}
-                  />
+                    <h4>
+                      <strong>Listing Url</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.listingUrl}
+                      name="listingUrl"
+                      placeholder='Listing Url'
+                      onChange={this.handleInputChange}
+                    />
 
-                  <h4>
-                    <strong>Location</strong>
-                  </h4>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.location}
-                    name="location"
-                    placeholder='Location'
-                    onChange={this.handleInputChange}
-                  />
+                    <h4>
+                      <strong>Location</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.location}
+                      name="location"
+                      placeholder='Location'
+                      onChange={this.handleInputChange}
+                    />
 
-                  <h4>
-                    <strong>Description</strong>
-                  </h4>
-                  <textarea
-                    className="form-control"
-                    type="text"
-                    value={this.state.description}
-                    name="description"
-                    placeholder='Description'
-                    onChange={this.handleInputChange}
-                  />
+                    <h4>
+                      <strong>Description</strong>
+                    </h4>
+                    <textarea
+                      className="form-control"
+                      type="text"
+                      value={this.state.description}
+                      name="description"
+                      placeholder='Description'
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                  <div>
+                    <h4>
+                      <strong>Company Name</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.company}
+                      name="company"
+                      placeholder='Company Name'
+                      onChange={this.handleInputChange}
+                    />
+
+                    <h4>
+                      <strong>Company Url</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.companyUrl}
+                      name="companyUrl"
+                      placeholder='Company Url'
+                      onChange={this.handleInputChange}
+                    />
+
+                    <h4>
+                      <strong>Company Logo</strong>
+                    </h4>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.state.companyLogo}
+                      name="companyLogo"
+                      placeholder='Company Logo'
+                      onChange={this.handleInputChange}
+                    />
+
+                    <h4>
+                      <strong>Notes</strong>
+                    </h4>
+                    <textarea
+                      className="form-control"
+                      type="text"
+                      value={this.state.notes}
+                      name="notes"
+                      placeholder='Notes'
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h4>
-                    <strong>Company Name</strong>
-                  </h4>
-                  <input
-                    className="form-control"
+                <div className="pull-right">
+                  <FlatButton
                     type="text"
-                    value={this.state.company}
-                    name="company"
-                    placeholder='Company Name'
-                    onChange={this.handleInputChange}
-                  />
-
-                  <h4>
-                    <strong>Company Url</strong>
-                  </h4>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.companyUrl}
-                    name="companyUrl"
-                    placeholder='Company Url'
-                    onChange={this.handleInputChange}
-                  />
-
-                  <h4>
-                    <strong>Company Logo</strong>
-                  </h4>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.companyLogo}
-                    name="companyLogo"
-                    placeholder='Company Logo'
-                    onChange={this.handleInputChange}
-                  />
-
-                  <h4>
-                    <strong>Notes</strong>
-                  </h4>
-                  <textarea
-                    className="form-control"
-                    type="text"
-                    value={this.state.notes}
-                    name="notes"
-                    placeholder='Notes'
-                    onChange={this.handleInputChange}
-                  />
+                    label="Submit"
+                    onClick={this.handleClose}
+                   />
                 </div>
-              </div>
-              <div className="pull-right">
-                <FlatButton
-                  type="text"
-                  label="Submit"
-                  onClick={this.handleClose}
-                 />
-              </div>
-            </form>
-          </div>
-        </Dialog>
-      </li>
-      </MuiThemeProvider>
-    )
+              </form>
+            </div>
+          </Dialog>
+        </li>
+        </MuiThemeProvider>
+      )
+    } else {
+      return null
+    }
+
   }
 }
 

@@ -52,11 +52,11 @@ class JobState extends Component {
         <label>
           <input
             type="radio"
-            value="turned-down"
-            checked={this.state.jobState === "turned-down"}
+            value="rejection"
+            checked={this.state.jobState === "rejection"}
             onChange={this.handleStateChange}
           />
-          Turned Down
+          No-Go
         </label>
         <label>
           <input
