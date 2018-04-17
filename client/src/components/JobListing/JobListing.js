@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FlatButton from 'material-ui/FlatButton'
+import axios from 'axios'
 import './JobListing.css'
 
 class JobListing extends Component {
@@ -18,7 +19,31 @@ class JobListing extends Component {
   }
 
   componentDidMount = () => {
+
     const { job } = this.props
+    console.log('job', job);
+    let jobkey = job.jobkey
+    let title = job.title
+    let location = job.location
+    let description = job.description
+    let listingUrl = job.listingUrl
+    let company = job.company
+    let formattedRelativeTime = job.formattedRelativeTime
+
+    axios.post('api/joblistings', {jobkey, title, location, description, listingUrl, company, formattedRelativeTime})
+    .then( joblisting => {
+      this.setState({
+        jobkey: joblisting.jobkey,
+        title: joblisting.title,
+        location: joblisting.location,
+        description: joblisting.description,
+        listingUrl: joblisting.listingUrl,
+        company: joblisting.company,
+        formattedRelativeTime: joblisting.formattedRelativeTime
+      })
+      this.props.history.push('/')
+    })
+
     this.setState({
       jobkey: job.jobkey,
       title: job.jobtitle,
@@ -28,6 +53,7 @@ class JobListing extends Component {
       company: job.company,
       formattedRelativeTime: job.formattedRelativeTime
     })
+
   }
 
   handleInputChange = event => {

@@ -20,23 +20,7 @@ class HomePage extends Component {
   }
 
   componentWillMount = () => {
-    let publisher = config.publisher
-    let count = this.state.count
-    let query = 'javascript'
-    let location = 'miami'
-    let url = 'https://api.indeed.com/ads/apisearch?publisher='+ publisher + '&format=json&q=' + query + '&l=' + location + '&sort=&radius=&st=&jt=&start= ' + count + '&limit=25&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2'
-    axios.get(url)
-    .then( response => {
-      console.log('response.data.results', response.data.results)
-      this.setState({
-        jobs:response.data.results
-      })
-      count += 25
-      console.log('count: ',count)
-    })
-      .catch(function (error) {
-      console.log(error)
-    })
+
   }
 
   handleInputChange = event => {
@@ -48,7 +32,24 @@ class HomePage extends Component {
 
   handleSearch = (event) => {
     event.preventDefault()
-    console.log('handle search submitted')
+    // console.log('handle search submitted')
+    let publisher = config.publisher
+    let count = this.state.count
+    let query = 'javascript'
+    let location = 'miami'
+    let url = 'https://api.indeed.com/ads/apisearch?publisher='+ publisher + '&format=json&q=' + query + '&l=' + location + '&sort=&radius=&st=&jt=&start= ' + count + '&limit=25&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2'
+    axios.get(url)
+    .then( response => {
+
+      console.log('response.data.results', response.data.results);
+      this.setState({
+        jobs: response.data.results
+      })
+
+    })
+      .catch(function (error) {
+      console.log(error)
+    })
   }
 
   render() {
@@ -63,7 +64,7 @@ class HomePage extends Component {
             name="query"
             placeholder='job title, keywords or company'
             onChange={this.handleInputChange}
-            required
+            // required
           />
           <input
             className="form-control"
@@ -72,7 +73,7 @@ class HomePage extends Component {
             name="city"
             placeholder='city, state, or zip'
             onChange={this.handleInputChange}
-            required
+            // required
           />
           <RaisedButton
             type="submit"

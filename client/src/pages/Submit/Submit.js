@@ -46,7 +46,7 @@ class Submit extends Component {
               companyUrl: job.companyUrl,
               companyLogo: job.companyLogo
             })
-            this.props.history.push('/')
+            this.props.history.push('/jobs')
           })
   }
 
