@@ -105,7 +105,6 @@ class Job extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-
           <CardText expandable={true}>
             <div className="job-state">
               <JobState id={this.state._id} jobState={this.state.jobState} />

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 // import axios from 'axios'
-import './Network.css';
+import './MyNetwork.css';
 
-class Network extends Component {
+class MyNetwork extends Component {
 
 
   render() {
@@ -17,4 +17,4 @@ class Network extends Component {
   }
 }
 
-export default Network;
+export default MyNetwork;

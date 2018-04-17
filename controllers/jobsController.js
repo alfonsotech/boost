@@ -4,7 +4,15 @@ module.exports = {
   findAll: function(req, res) {
     db.Jobs
       .find({})
-      .sort('upvotes')
+      .exec( (err, docs) => {
+        // console.log('docs', docs)
+        res.json(docs)
+      })
+  },
+  findDead: function(req, res) {
+    db.Jobs
+      .find({})
+      .sort('jobState', 'rejection')
       .exec( (err, docs) => {
         // console.log('docs', docs)
         res.json(docs)
@@ -26,7 +34,7 @@ module.exports = {
       notes: req.body.notes,
       company: req.body.company,
       companyUrl: req.body.companyUrl,
-      companyLogo: req.body.companyLogo
+      // companyLogo: req.body.companyLogo
     }
     db.Jobs
       .create(job)

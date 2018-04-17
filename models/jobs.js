@@ -10,7 +10,7 @@ const jobSchema = new Schema({
   notes: { type: Array, required: false },
   company: { type: String, required: false },
   companyUrl: { type: String, required: false },
-  companyLogo: { type: String, required: false },
+  companyLogo: { type: String, required: false, default: '/good-job.png' },
   date: { type: Date, default: Date.now }
 });
 

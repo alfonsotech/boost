@@ -1,8 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import Home from "./pages/Home"
-import Jobs from "./pages/Jobs"
-import Network from "./pages/Network"
+import HomePage from "./pages/HomePage"
+import MyJobs from "./pages/MyJobs"
+import MyNetwork from "./pages/MyNetwork"
 import Submit from "./pages/Submit"
 // import Edit from "./pages/Edit"
 import Footer from './components/Footer'
@@ -14,9 +14,9 @@ const App = () =>
     <div>
       <Navigation />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/jobs" component={Jobs} />
-        <Route exact path="/network" component={Network} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/jobs" component={MyJobs} />
+        <Route exact path="/network" component={MyNetwork} />
         <Route exact path="/submit" component={Submit} />
         <Route component={NoMatch} />
       </Switch>
