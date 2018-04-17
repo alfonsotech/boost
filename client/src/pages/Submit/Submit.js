@@ -26,7 +26,6 @@ class Submit extends Component {
     this.setState({
       [name]: value
     })
-    // console.log('this.state inside handleInputChange', this.state);
   }
 
   handleFormSubmit = event => {
@@ -48,11 +47,11 @@ class Submit extends Component {
               companyLogo: job.companyLogo
             })
             this.props.history.push('/')
-          });
+          })
   }
 
   render() {
-    // console.log('this.props', this.props);
+    // console.log('this.props', this.props)
     return (
       <div className="Submit">
         <h1>Submit Job Listing</h1>
@@ -60,7 +59,7 @@ class Submit extends Component {
           <div className="form-group submit-inputs">
             <div>
               <h4>
-                <strong>Title</strong>
+                <strong>Job Title</strong>
               </h4>
               <input
                 className="form-control"
@@ -73,7 +72,7 @@ class Submit extends Component {
               />
 
               <h4>
-                <strong>Listing Url</strong>
+                <strong>Job Listing Url</strong>
               </h4>
               <input
                 className="form-control"
@@ -85,7 +84,7 @@ class Submit extends Component {
               />
 
               <h4>
-                <strong>Location</strong>
+                <strong>Job Location</strong>
               </h4>
               <input
                 className="form-control"
@@ -97,7 +96,7 @@ class Submit extends Component {
               />
 
               <h4>
-                <strong>Description</strong>
+                <strong>Job Description</strong>
               </h4>
               <textarea
                 className="form-control"

@@ -26,15 +26,6 @@ const Footer = () => (
           <li><a target="_top"  rel="noopener noreferrer" href="mailto:thinkphilosophy@nym.hush.com?Subject=Feature%20Request">Feature Request</a></li>
           <li><a target="_top"  rel="noopener noreferrer" href="mailto:thinkphilosophy@nym.hush.com?Subject=Report%20Bug">Report Bug</a></li>
         </ul>
-        <hr />
-        <ul>
-          <li><h6>SUPPORT</h6></li>
-          <li>
-            <a target="_blank"  rel="noopener noreferrer" href="https://www.patreon.com/thinkPhilosophy">
-              <img className="patreon-logo" src="/patreon-logo.png" alt="patreon-logo"></img>
-            </a>
-          </li>
-        </ul>
       </div>
 
 
@@ -69,6 +60,6 @@ const Footer = () => (
       <small><p>Copyright &copy; 2018 AlfonsoTech</p></small>
     </div>
     </footer>
-);
+)
 
-export default Footer;
+export default Footer

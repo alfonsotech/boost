@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import axios from 'axios'
-// import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-// import FlatButton from 'material-ui/FlatButton';
+// import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
+// import FlatButton from 'material-ui/FlatButton'
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Jobs from '../../components/Jobs'
-import './Jobs.css';
+import './MyJobs.css'
 
-class Home extends Component {
+class MyJobs extends Component {
   constructor() {
     super()
     this.state = {
@@ -17,14 +17,14 @@ class Home extends Component {
 
   componentWillMount = () => {
     axios.get('/api/jobs')
-    .then( (response) => {
+    .then( response => {
       this.setState({
         jobs:response.data
       })
     })
       .catch(function (error) {
-      console.log(error);
-    });
+      console.log(error)
+    })
   }
 
   updateSearch = (event) => {
@@ -65,8 +65,8 @@ class Home extends Component {
       />
       </div>
 
-    );
+    )
   }
 }
 
-export default Home;
+export default MyJobs

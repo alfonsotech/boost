@@ -1,1 +1,1 @@
-export { default } from "./Submit.js";
+export { default } from "./Submit.js"

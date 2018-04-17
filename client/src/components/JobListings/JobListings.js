@@ -1,16 +1,15 @@
 import React from 'react'
-import Job from '../Job'
-import './Jobs.css'
+import JobListing from '../JobListing'
+import './JobListings.css'
 
-const Jobs = ({jobs, history}) => {
+const JobListings = ({jobs, history}) => {
   // console.log('history', history)
       return (
-        <ol>
+        <ol className="job-listing">
           {jobs.map( (job, i) => {
             return (
-
-                <Job
-                  key={job._id}
+                <JobListing
+                  key={job.jobkey}
                   job={job}
                   history={history}
                 />
@@ -20,8 +19,6 @@ const Jobs = ({jobs, history}) => {
         )}
       </ol>
       )
-
-
 }
 
-export default Jobs
+export default JobListings

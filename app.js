@@ -14,6 +14,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, "client", "build")))
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*")
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+//   next()
+// })
 
 app.use(routes)
 
@@ -23,11 +28,11 @@ mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jsp")
 // mongoose.connect("mongodb://127.0.0.1//mern-crud")
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose default connection open to mongodb://localhost/jsp');
-});
+  console.log('Mongoose default connection open to mongodb://localhost/jsp')
+})
 mongoose.connection.on('error',function (err) {
-  console.log('Mongoose default connection error: ' + err);
-});
+  console.log('Mongoose default connection error: ' + err)
+})
 
 app.listen(PORT, function() {
   console.log('Listening on port: ' + PORT)

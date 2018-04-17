@@ -6,7 +6,7 @@ class Test extends Component {
 
 getRecord = () => {
   axios.get('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=123456789&redirect_uri=https%3A%2F%2Fwww.example.com%2Fauth%2Flinkedin&state=987654321&scope=r_basicprofile').then( result => {
-    console.log('result', result);
+    console.log('result', result)
   })
 }
   responseLinkedin = response => {
@@ -28,4 +28,4 @@ getRecord = () => {
 }
 
 
-export default Test;
+export default Test
