@@ -1,1 +1,1 @@
-export { default } from "./MyNetwork.js";
+export { default } from "./MyNetwork.js"

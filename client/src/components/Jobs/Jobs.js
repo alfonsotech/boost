@@ -3,7 +3,7 @@ import Job from '../Job'
 import './Jobs.css'
 
 const Jobs = ({jobs, history}) => {
-  // console.log('history', history);
+  // console.log('history', history)
       return (
         <ol>
           {jobs.map( (job, i) => {

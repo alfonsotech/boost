@@ -2,7 +2,7 @@
 module.exports = {
   findAll: function(req, res) {
     .get('',function(data) {
-      console.log('data', data);
+      console.log('data', data)
 
     })
   }

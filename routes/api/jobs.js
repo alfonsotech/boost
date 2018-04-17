@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const jobsController = require("../../controllers/jobsController");
+const router = require("express").Router()
+const jobsController = require("../../controllers/jobsController")
 
 // Matches with "/api/jobs"
 router.route("/")
   .get(jobsController.findAll)
-  .post(jobsController.create);
+  .post(jobsController.create)
 
 // //Get trending Topics
 // router.route("/trending")
@@ -24,4 +24,4 @@ router
   .put(jobsController.update)
   .delete(jobsController.remove)
 
-module.exports = router;
+module.exports = router

@@ -60,6 +60,6 @@ const Footer = () => (
       <small><p>Copyright &copy; 2018 AlfonsoTech</p></small>
     </div>
     </footer>
-);
+)
 
-export default Footer;
+export default Footer

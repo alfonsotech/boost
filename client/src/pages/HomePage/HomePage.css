@@ -1,7 +1,21 @@
 .HomePage {
   padding-top: 59px;
 }
+.HomePage form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
 .job-listing {
-  margin: 40px;
+
   width: 50%;
+}
+.job-listing li {
+  margin: 40px;
+}
+.form-control {
+    width: 30%;
+    margin: 2px;
 }
