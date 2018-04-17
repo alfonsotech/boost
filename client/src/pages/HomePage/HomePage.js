@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import config from '../../utils/config.json'
+import JobListings from '../../components/JobListings'
 import './HomePage.css'
 
 class HomePage extends Component {
@@ -23,7 +24,7 @@ class HomePage extends Component {
     let publisher = config.publisher
     let count = this.state.count
     let query = 'javascript'
-    let location = 'florida'
+    let location = 'miami'
     let url = 'https://api.indeed.com/ads/apisearch?publisher='+ publisher + '&format=json&q=' + query + '&l=' + location + '&sort=&radius=&st=&jt=&start= ' + count + '&limit=25&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2'
     axios.get(url)
     .then( response => {
@@ -90,30 +91,11 @@ class HomePage extends Component {
             label="Search"
            />
         </form>
-        <ol className="job-listing">
-        {this.state.jobs.map( (job, i) => {
-              return (
-              <li key={job.jobkey}>
-                <a href={job.url} target="_blank"><p>{job.jobtitle} <span><small>({job.formattedRelativeTime})</small></span></p></a>
-                <p key={job.company}>{job.company}<span> | {job.city}</span></p>
-                <p>{job.snippet}</p>
-                <FlatButton
-                  type="text"
-                  label="Add To MyJobs"
-                  onClick={this.handleAddJob}
-                 />
-                 <FlatButton
-                   type="text"
-                   label="Hide From View"
-                   onClick={this.handleHideJob}
-                  />
-              </li>
-            )
-        })
-      }
-      </ol>
-    </div>
-  </MuiThemeProvider>
+        <JobListings
+        jobs={this.state.jobs} history={this.props.history}
+        />
+      </div>
+    </MuiThemeProvider>
     )
   }
 }
