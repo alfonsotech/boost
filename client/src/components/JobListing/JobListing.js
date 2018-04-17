@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import FlatButton from 'material-ui/FlatButton'
-import axios from 'axios'
 import './JobListing.css'
 
 class JobListing extends Component {
@@ -13,7 +12,8 @@ class JobListing extends Component {
       description: '',
       listingUrl: '',
       company: '',
-      formattedRelativeTime: ''
+      formattedRelativeTime: '',
+      visibility: true
     }
   }
 
@@ -37,33 +37,41 @@ class JobListing extends Component {
     })
   }
 
-  // handleDelete = () => {
-  //   console.log('Delete button clicked')
-  //   if(window.confirm('Are you sure you wish to delete this item?')) {
-  //     axios.delete('/api/jobs/' + this.state._id)
-  //   }
-  //   this.props.history.push('/jobs')
-  // }
+  handleAddJob = () => {
+    console.log('add to myJobs button clicked')
+    //make post request to create job in DB
+  }
+
+  handleHideJob = () => {
+    console.log('this', this);
+    console.log('hide job fromview clicked')
+    this.setState({
+      visibility: false
+    })
+    // this.props.history.push('/')
+  }
 
   render() {
-    return (
-      <li key={this.state.jobkey}>
-        <a href={this.state.listingUrl} target="_blank"><p>{this.state.title} <span><small>({this.state.formattedRelativeTime})</small></span></p></a>
-        <p key={this.state.company}>{this.state.company}<span> | {this.state.location}</span></p>
-        <p>{this.state.description}</p>
-        <FlatButton
-          type="text"
-          label="Add To MyJobs"
-          onClick={this.handleAddJob}
-         />
-         <FlatButton
-           type="text"
-           label="Hide From View"
-           onClick={this.handleHideJob}
+    let visibility = this.state.visibility
+    if(visibility){
+      return (
+        <li key={this.state.jobkey}>
+          <a href={this.state.listingUrl} target="_blank"><p>{this.state.title} <span><small>({this.state.formattedRelativeTime})</small></span></p></a>
+          <p key={this.state.company}>{this.state.company}<span> | {this.state.location}</span></p>
+          <p>{this.state.description}</p>
+          <FlatButton
+            type="text"
+            label="Add To MyJobs"
+            onClick={this.handleAddJob}
           />
-      </li>
-
+          <FlatButton
+            type="text"
+            label="Hide From View"
+            onClick={this.handleHideJob}
+          />
+        </li>
       )
+    }
   }
 }
 

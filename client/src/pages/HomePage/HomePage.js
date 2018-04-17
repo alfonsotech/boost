@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import axios from 'axios'
-import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import config from '../../utils/config.json'
@@ -51,17 +50,6 @@ class HomePage extends Component {
     event.preventDefault()
     console.log('handle search submitted')
   }
-
-  handleAddJob = () => {
-    console.log('add to myJobs button clicked')
-    //make post request to create job in DB
-  }
-
-  handleHideJob = () => {
-    console.log('hide job fromview clicked')
-  }
-
-
 
   render() {
     return (

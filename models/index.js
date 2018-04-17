@@ -1,3 +1,4 @@
 module.exports = {
-  Jobs: require('./jobs')
+  Jobs: require('./jobs'),
+  JobListings: require('./jobListing')
 }
