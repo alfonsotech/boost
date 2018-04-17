@@ -3,5 +3,4 @@ node_modules
 
 client/src/pages/Submit.js
 client/src/pages/Submit.css
-client/src/pages/Edit.js
-client/src/pages/Edit.css
+client/src/utils/config.json
